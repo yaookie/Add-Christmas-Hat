@@ -57,7 +57,7 @@ def add_christmas_hat_dlib(face_img_path, hat_img_path, output_path="person_with
 
         # 3.5 计算帽子叠加位置
         hat_x = hat_center_x - hat_target_width // 2
-        hat_y = hat_top_y - hat_target_height
+        hat_y = hat_top_y - hat_target_height + 20  # 此处可调整帽高度，数值越大，帽子越低
 
         # 3.6 处理边界问题，确保帽子在图片范围内
         y1, y2 = max(0, hat_y), min(img.shape[0], hat_y + hat_target_height)
@@ -70,7 +70,7 @@ def add_christmas_hat_dlib(face_img_path, hat_img_path, output_path="person_with
             alpha = hat_resized[hat_y1:hat_y2, hat_x1:hat_x2, 3] / 255.0
             for c in range(3):
                 img[y1:y2, x1:x2, c] = (1 - alpha) * img[y1:y2, x1:x2, c] + alpha * hat_resized[
-                    hat_y1:hat_y2, hat_x1:hat_x2, c]
+                                                                                    hat_y1:hat_y2, hat_x1:hat_x2, c]
 
     # 4. 保存结果
     cv2.imwrite(output_path, img)
@@ -79,7 +79,7 @@ def add_christmas_hat_dlib(face_img_path, hat_img_path, output_path="person_with
 
 if __name__ == "__main__":
     # 人脸图片路径（JPG/PNG均可）
-    FACE_IMG = "C:\\Users\\Administrator\\Desktop\\W020180330321867349838.jpg"
+    FACE_IMG = "./resources/imgs/gtq.jpg"
     # 圣诞帽PNG（透明底）路径
     HAT_IMG = "./resources/christmas_hat.png"
     # 结果保存路径（自动根据输入文件名添加 "_with_hat" 后缀）
