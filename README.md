@@ -1,4 +1,4 @@
-# Add Christmas Hats to Every Person in the Image 给图片中的每个人添加圣诞帽
+# Add a Christmas Hat to Everyone in the Picture 给图片中的每个人添加圣诞帽
 
 ## 1. Introduction 介绍
 
@@ -9,9 +9,8 @@ in an image. The hat size/position adapts to face size.
 
 ## 2. Environment Dependencies 环境依赖
 
-### 2.1 Required Packages 所需依赖包
-
 Install the following packages before running:
+
 运行前需安装以下依赖包：（dlib包如果安装失败，可尝试安装预编译版本，这里直接使用的预编译版本）
 
 ```bash
